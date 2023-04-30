@@ -154,12 +154,22 @@ article {
 }
 
 img {
-    width: calc(33% - 15px);
+    width: calc(33% - 12px);
     margin: 5px;
     border: 2px solid rgb(0, 182, 0);
 
 }
 
 img.gif {
-    width: 100%;
+    width: 98%;
+    margin: 5px;
+}
+
+@media (max-width: 800px) {
+    img {
+        width: calc(50% - 15px);
+        margin: 5px;
+        border: 2px solid rgb(0, 182, 0);
+    
+    }
 }
