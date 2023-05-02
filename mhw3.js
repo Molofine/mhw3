@@ -55,11 +55,11 @@ for(let article of articles) {
 	let car_model = article.dataset.carModel;
 	let img_url = img_api_endpoint + img_key + '&query=' + encodeURIComponent(car_model) + '&page=1&per_page=21';
 	
-	// Carico foto usando una ricerca (uso lambda function
+	// Carico foto usando una ricerca per parole chiave (uso lambda function)
 	fetch(img_url).then(onResponse, onError).then((json) => {
 		console.log(json);
 
-		// Se le foto sono meno di 3 le inserisce tutte, se invece le foto sono più di 3 mette le prime 3
+		// Inserisco 21 foto
 		for(let i=0; i < json.results.length; i++) {
 			let image = document.createElement('img');
 			image.src = json.results[i].urls.regular;
@@ -68,7 +68,7 @@ for(let article of articles) {
 		}
 	});
 
-	// Carico una GIF per ID, già scelta per ogni auto
+	// Inserisco una GIF per ID, già scelta per ogni auto
 	fetch(gif_api_endpoint_search + list_gifs_id[car_model], {
 		method: "GET",
 		headers: {
